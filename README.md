@@ -1,125 +1,126 @@
-# 📋 VBA Spec Assistant — AI-Powered EDI 834 Documentation Agent
+# 📋 Healthcare EDI Compliance — AI Agents for Spec Research
 
-> **An intelligent RAG (Retrieval-Augmented Generation) agent that interprets complex healthcare EDI specifications**  
-> Ask natural language questions about VBA 834 Companion Guide — get instant, citation-backed answers.
+> SPARKSPHEAR builds AI agents for healthcare EDI compliance workflows across EDI engineers, healthcare IT teams, benefits administrators, and compliance officers.
+
+**Start With the Workflow. Scale What Works.**
+
+We audit the system, connect the tools that fit, and automate the work that does not require constant manual attention.
 
 ---
 
 ## ❌ The Problem
 
-Healthcare interoperability projects fail due to misinterpretation of EDI specs. Engineers spend hours CTRL+F through 100+ page PDFs to find segment definitions, loop structures, and code values. Each engineer interprets the spec differently — leading to inconsistent implementations, integration failures, and compliance violations. The knowledge is trapped in static PDFs that don't answer questions.
+Healthcare interoperability projects fail due to misinterpretation of EDI specs. Engineers spend hours searching through 100+ page PDFs to find segment definitions. Each engineer interprets the spec differently — leading to integration failures. The compliance team does everything — and the review plateaus.
 
 **Before:** Hours of manual PDF searching, inconsistent engineer interpretations, integration failures, compliance risks, knowledge trapped in static documents.
 
-**After (AI RAG Agent):** Natural language queries with instant, citation-backed answers — "What's the REF segment in Loop 2300?" returns the exact segment definition with page reference. Standardized interpretations across the entire engineering team. 100% offline and private.
+**After (AI Agent Fleet):** Natural language queries with instant citation-backed answers. Standardized interpretations across the entire engineering team. 100% offline and private.
 
 ---
 
-## 🧠 AI Agent Architecture
+## 🤖 AI Agent Fleet
 
-```mermaid
-graph TB
-    subgraph INPUT["📄 Knowledge Base"]
-        I1[VBA 834 Companion\nGuide PDF]
-        I2[EDI Segment\nDefinitions]
-        I3[Loop Structure\nDocumentation]
-    end
+Four AI agents that turn 100+ page EDI specs into instant, citation-backed answers.
 
-    subgraph INGESTION["📚 Ingestion Agent Pipeline"]
-        P1[PDF Parser Agent\nPyPDF2 Extraction]
-        P2[Text Cleaner Agent\nNormalization]
-        P3[Page Ranker Agent\nRelevance Indexing]
-    end
-
-    subgraph QUERY["🔍 Query Processing"]
-        Q1[Natural Language\nQuery Agent]
-        Q2[Keyword Context\nRetrieval Agent]
-        Q3[Page Ranking\nAlgorithm]
-    end
-
-    subgraph LLM["🧠 Local LLM Agent"]
-        L1[Context Assembly\nAgent]
-        L2[Subject Matter\nExpert Agent]
-        L3[Citation Generator\nAgent]
-    end
-
-    subgraph OUTPUT["📤 Response"]
-        O1[Answer with\nSegment References]
-        O2[Loop Location\nCitations]
-        O3[Implementation\nGuidance]
-    end
-
-    I1 --> P1
-    I2 --> P1
-    I3 --> P1
-    P1 --> P2
-    P2 --> P3
-    Q1 --> Q2
-    Q2 --> Q3
-    Q3 --> L1
-    P3 --> L1
-    L1 --> L2
-    L2 --> L3
-    L3 --> O1
-    L3 --> O2
-    L3 --> O3
-
-    style P1 fill:#4CAF50,stroke:#333,color:#fff
-    style Q2 fill:#2196F3,stroke:#333,color:#fff
-    style L2 fill:#FF9800,stroke:#333,color:#fff
-    style L3 fill:#9C27B0,stroke:#333,color:#fff
-```
-
-## 🤖 What the AI Agents Do
-
-| Agent | Function |
-|-------|----------|
-| **PDF Ingestion Agent** | Parses 100+ page VBA 834 Companion PDF, extracts and normalizes text, indexes pages by segment/loop |
-| **Context Retrieval Agent** | Instead of sending the entire document (which exceeds context windows), dynamically ranks pages based on relevance to your query using a keyword-driven algorithm |
-| **Subject Matter Expert Agent** | Local LLM (via LM Studio) acts as an EDI specialist — System Prompt engineered for precision over creativity |
-| **Citation Agent** | Every answer includes exact segment/loop references — "Loop 2300, Segment REF, Element REF02" |
-
-## 🔄 Before vs After
+### Architecture
 
 ```mermaid
 graph LR
-    subgraph BEFORE["❌ Before (Manual)"]
-        BM[CTRL+F through\n100+ page PDFs\nHours of research\nInconsistent interpretation\nBetween engineers]
+    subgraph BEFORE["❌ Before"]
+        B1[100+ page PDFs]
+        B2[Manual CTRL+F search]
+        B3[Inconsistent interpretations]
+        B4[Integration failures]
     end
-
-    subgraph AFTER["✅ After (AI Agent)"]
-        AM[Natural language query\nInstant cited answers\nStandardized interpretation\n100% offline & private]
+    subgraph AFTER["✅ After"]
+        A1[PDF Ingestion Agent]
+        A2[Context Retrieval Agent]
+        A3[SME Agent]
+        A4[Citation Agent]
     end
-
-    BM -->|VBA Spec Assistant| AM
+    B1 --> A1
+    B2 --> A2
+    B3 --> A3
+    B4 --> A4
 ```
 
-## 🛠 Tech Stack
-
-| Component | Technology | Agent Role |
-|-----------|-----------|------------|
-| **PDF Processing** | PyPDF2 | Document ingestion agent |
-| **AI Engine** | OpenAI SDK (Local Endpoint) | LLM inference agent |
-| **Retrieval** | Custom keyword ranking | Context retrieval agent |
-| **Privacy** | 100% offline (LM Studio) | Security isolation agent |
-| **Language** | Python 3.10+ | Agent framework |
-
-## ⚡ Quick Start
-
-```bash
-# Ask a question about EDI 834 specs
-python assistant.py "What is the REF segment in Loop 2300?"
-# Output: Answer with citations to specific pages/segments
+```mermaid
+graph TB
+    subgraph KNOWLEDGE["📚 Knowledge Base"]
+        K1[VBA 834 Companion Guide]
+        K2[EDI Segment Definitions]
+        K3[Loop Structure Docs]
+    end
+    subgraph AGENTS["🤖 AI Agents"]
+        A1[PDF Ingestion\nAgent]
+        A2[Context Retrieval\nAgent]
+        A3[Subject Matter\nExpert Agent]
+        A4[Citation\nGenerator Agent]
+    end
+    subgraph QUERY["🔍 Query"]
+        Q1[Natural Language Question]
+        Q2[Segment/Loop Reference]
+    end
+    K1 --> A1
+    K2 --> A1
+    K3 --> A1
+    A1 --> A2
+    Q1 --> A2
+    Q2 --> A2
+    A2 --> A3
+    A3 --> A4
+    A4 --> Q1
+    style A1 fill:#4CAF50,stroke:#333,color:#fff
+    style A2 fill:#2196F3,stroke:#333,color:#fff
+    style A3 fill:#FF9800,stroke:#333,color:#fff
+    style A4 fill:#9C27B0,stroke:#333,color:#fff
 ```
 
-## 💡 Why This Matters
+### Answer and route
+The agent handles approved EDI specification questions by retrieving relevant segments, loops, and code values from the companion guide. It captures the query, finds the exact segment definition with page reference, and returns citation-backed guidance.
 
-Healthcare interoperability projects often fail due to misinterpretation of EDI specs. This AI agent:
-1. **Reduces Research Time:** No more CTRL+F through 100+ page PDFs
-2. **Standardizes Interpretation:** Every engineer gets the same answer from the official guide
-3. **Privacy-First:** Runs 100% offline using local inference — no proprietary docs leave your environment
+### Bring clients back
+Use documentation-specific return windows (quarterly guide updates, new carrier onboarding, integration testing cycles) to flag knowledge gaps and prepare compliance-approved guidance updates.
+
+### Keep control
+Implementation decisions, compliance interpretations, and engineering approvals stay behind permissions, escalation rules, and human review. The agent assists; you remain responsible.
+
+---
+
+## 🚀 Start With One Workflow
+
+We do not start by selling the biggest package. We start by auditing the workflow and identifying the smallest useful agent.
+
+**Workflow Audit — Starting at $297 one-time**
+- Current workflow map
+- Bottleneck analysis
+- Existing-tool review
+- Data and access requirements
+- Agent suitability assessment
+- Three prioritized automation opportunities
+- Recommended first agent
+- Implementation scope
+- Measurement and acceptance plan
+
+**Implementation — One-time build fee**
+- Agent development and testing
+- Approved integration setup
+- Escalation rule configuration
+- Acceptance criteria verification
+
+**Monthly Agent Operation — Recurring package fee**
+
+| Package | Price | Best For |
+|---------|-------|----------|
+| **SIGNAL START** | $297/mo | One narrow workflow, one primary channel, one or two approved integrations |
+| **FLOW CONTROL** | $697/mo | Several related workflows with routing, follow-up, and exception handling |
+| **SYSTEM LIFT** | $1,497/mo | Multiple workflows, channels, custom rules, and meaningful reporting |
+| **SCALE CONTROL** | from $2,997/mo | Multi-location, operations-heavy, custom APIs and dashboards |
+
+This maps to **SIGNAL START** — one narrow workflow (EDI specification research) with a single primary channel (text query) and one approved integration (local LLM).
 
 ---
 
 Built by **[Shazaly Musa](https://github.com/SparkSpheartech)** — Founder, SparkSphear Tech  
-*AI Agents for Healthcare EDI & Compliance*
+*Start With the Workflow. Scale What Works.*  
+*AI Agents for Healthcare EDI Compliance*
