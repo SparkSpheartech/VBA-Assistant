@@ -5,6 +5,16 @@
 
 ---
 
+## ❌ The Problem
+
+Healthcare interoperability projects fail due to misinterpretation of EDI specs. Engineers spend hours CTRL+F through 100+ page PDFs to find segment definitions, loop structures, and code values. Each engineer interprets the spec differently — leading to inconsistent implementations, integration failures, and compliance violations. The knowledge is trapped in static PDFs that don't answer questions.
+
+**Before:** Hours of manual PDF searching, inconsistent engineer interpretations, integration failures, compliance risks, knowledge trapped in static documents.
+
+**After (AI RAG Agent):** Natural language queries with instant, citation-backed answers — "What's the REF segment in Loop 2300?" returns the exact segment definition with page reference. Standardized interpretations across the entire engineering team. 100% offline and private.
+
+---
+
 ## 🧠 AI Agent Architecture
 
 ```mermaid
